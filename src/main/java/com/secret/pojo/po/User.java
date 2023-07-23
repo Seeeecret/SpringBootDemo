@@ -3,11 +3,21 @@ package com.secret.pojo.po;
 public class User {
     int ID;
     String name;
-    int money;
+    Integer money;
 
     String password;
 
     public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public User(int ID, String name, int money, String password) {
@@ -15,6 +25,14 @@ public class User {
         this.name = name;
         this.money = money;
         this.password = password;
+    }
+
+    public User(int ID) {
+        this.ID = ID;
+    }
+
+    public User(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -31,6 +49,10 @@ public class User {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public void setMoney(Integer money) {
+        this.money = money;
     }
 
     public String getName() {

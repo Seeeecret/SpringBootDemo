@@ -5,6 +5,8 @@ import com.secret.pojo.dto.ResultSet;
 import com.secret.pojo.po.User;
 import com.secret.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,18 +16,18 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-
+// TODO  返回值类型可以改为ResponseEntity<ResultSet>，这样可以返回状态码
     @PostMapping
-    public ResultSet login(@RequestBody User user) {
+    public ResponseEntity<ResultSet> login(@RequestBody User user) {
         User queryUser = userService.getUserByName(user.getName());
         if (queryUser != null) {
             if (queryUser.getPassword().equals(user.getPassword())) {
-                return new ResultSet(ResultCodeEnum.OK, queryUser);
+                return ResponseEntity.ok().body(new ResultSet(ResultCodeEnum.OK, queryUser));
             } else {
-                return new ResultSet(false, 400, "密码错误", null);
+                return ResponseEntity.badRequest().body(new ResultSet(false, 400, "密码错误", null));
             }
         } else {
-            return new ResultSet(false, 400, "用户不存在", null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body((new ResultSet(false, 400, "用户不存在", null)));
         }
     }
 

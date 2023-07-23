@@ -19,10 +19,10 @@ public interface UserDao {
     @Delete("delete from test02.account where name = #{name}")
     public int deleteUserByName(String name);
 
-    @Insert("insert into test02.account (name, money) values (#{name}, #{money})")
+    @Insert("insert into test02.account (name, money, password) values (#{name}, #{money}, #{password})")
     public int addUser(User user);
 
-    @Update("update test02.account set money = #{user.money} where name = #{user.name}")
+    @Update("update test02.account set money = #{money} where name = #{name}")
     public int updateUser(User user);
 
     @Select("select * from test02.account where ID = #{ID}")
