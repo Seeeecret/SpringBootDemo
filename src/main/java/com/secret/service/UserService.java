@@ -1,10 +1,6 @@
 package com.secret.service;
 
-import com.secret.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import com.secret.pojo.po.User;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.secret.dao;
 
-import com.secret.pojo.User;
+import com.secret.pojo.po.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

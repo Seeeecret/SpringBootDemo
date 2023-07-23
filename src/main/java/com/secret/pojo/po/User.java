@@ -1,26 +1,28 @@
-package com.secret.pojo;
+package com.secret.pojo.po;
 
 public class User {
     int ID;
     String name;
     int money;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "ID=" + ID +
-                ", name='" + name + '\'' +
-                ", money=" + money +
-                '}';
-    }
+    String password;
 
     public User() {
     }
 
-    public User(int ID, String name, int money) {
+    public User(int ID, String name, int money, String password) {
         this.ID = ID;
         this.name = name;
         this.money = money;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getID() {

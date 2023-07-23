@@ -2,7 +2,7 @@ package com.secret.service.impl;
 
 
 import com.secret.dao.UserDao;
-import com.secret.pojo.User;
+import com.secret.pojo.po.User;
 import com.secret.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
